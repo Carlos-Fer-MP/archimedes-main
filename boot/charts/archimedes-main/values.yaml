@@ -1,0 +1,8 @@
+springboot-service:
+  appName: archimedes-main
+  appVersion: 4.47.0
+  projectName: archimedes-main
+  image:
+    repositoryUrl:
+    imagePath:
+    tag:

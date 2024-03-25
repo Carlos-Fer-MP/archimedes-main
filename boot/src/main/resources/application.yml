@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: qacodemonitor
+
+# Actuator endpoints configuration
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: [ info, health, prometheus ]
+
+
+server:
+  port: 8080
+
+logging:
+  file:
+    path: logs
+    name: logs/application-pro.log
+
+qacodemonitor:
+  logstash:
+    host:
+  sonar:
+    url:
+      issuesAssigned: "https://sonarqube.gcp.mercadona.com/api/issues/search?resolved=no&facets=assignees&componentKeys="
+      totalLoc: "https://sonarqube.gcp.mercadona.com/api/measures/component?metricKeys=ncloc&component="
+      license: "https://sonarqube.gcp.mercadona.com/api/editions/show_license"
+      usersInternal: "https://sonarqube.gcp.mercadona.com/api/users/search?deactivated=no&q=.es"
+      usersExternal: "https://sonarqube.gcp.mercadona.com/api/users/search?deactivated=no&q=.com"
+      userName: "https://sonarqube.gcp.mercadona.com/api/users/search?q="
+      projectTag: "https://sonarqube.gcp.mercadona.com/api/components/show?component="
+      portfolio: "https://sonarqube.gcp.mercadona.com/api/views/show?key="
+      computedIssues: "https://sonarqube.gcp.mercadona.com/api/issues/search?statuses=OPEN,REOPENED,CONFIRMED&resolved=false&types=%s&componentKeys=%s&asc=false&facets=severities&ps=1"
+      issuesByType: "https://sonarqube.gcp.mercadona.com/api/issues/search?statuses=OPEN,REOPENED,CONFIRMED&resolved=false&types=%s&severities=%s&componentKeys=%s&asc=false&facets=rules&ps=1"
+      issuesDetails: "https://sonarqube.gcp.mercadona.com/api/rules/search?activation=true&f=severity,name&facets=tags&rule_key="
+      metrics: "https://sonarqube.gcp.mercadona.com/api/measures/component?metricKeys="
+    username: ${SONAR_USERNAME}
+    password: ${SONAR_PASSWORD}
+    sonar-token: ${SONAR_TOKEN}
+
+fwkcna:
+  rest-template:
+    truststore:
+      path: /etc/ssl/certs/java/cacerts
+      password: changeit
+  auth:
+    clients:
+      enable: true
+    provider:
+      adfs:
+        flow: client-credentials
+        authority: "https://fed.mercadona.com/adfs/oauth2/token"
+        clientId: ${ADFS_ID_QACODEMONITOR}
+        clientSecret: ${ADFS_SECRET_QACODEMONITOR}
+        audience: "api://mercadona/audience/services/qacodemonitor/v1"
+        idp: adfs
+        scope:
+          - "openid"
+        skipCache: false

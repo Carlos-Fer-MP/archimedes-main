@@ -1,0 +1,29 @@
+logging:
+  file:
+    path: logs
+    name: logs/application-pre.log
+
+qacodemonitor:
+  logstash:
+    host: "http://172.22.38.212:31314"
+  sonar:
+    url:
+      issuesAssigned: "https://sonarqube.pre.gcp.mercadona.com/api/issues/search?resolved=no&facets=assignees&componentKeys="
+      totalLoc: "https://sonarqube.pre.gcp.mercadona.com/api/measures/component?metricKeys=ncloc&component="
+      license: "https://sonarqube.pre.gcp.mercadona.com/api/editions/show_license"
+      usersInternal: "https://sonarqube.pre.gcp.mercadona.com/api/users/search?deactivated=no&q=.es"
+      usersExternal: "https://sonarqube.pre.gcp.mercadona.com/api/users/search?deactivated=no&q=.com"
+      userName: "https://sonarqube.pre.gcp.mercadona.com/api/users/search?q="
+      projectTag: "https://sonarqube.pre.gcp.mercadona.com/api/components/show?component="
+      portfolio: "https://sonarqube.pre.gcp.mercadona.com/api/views/show?key="
+      computedIssues: "https://sonarqube.pre.gcp.mercadona.com/api/issues/search?statuses=OPEN,REOPENED,CONFIRMED&resolved=false&types=%s&componentKeys=%s&asc=false&facets=severities&ps=1"
+      issuesByType: "https://sonarqube.pre.gcp.mercadona.com/api/issues/search?statuses=OPEN,REOPENED,CONFIRMED&resolved=false&types=%s&severities=%s&componentKeys=%s&asc=false&facets=rules&ps=1"
+      issuesDetails: "https://sonarqube.pre.gcp.mercadona.com/api/rules/search?activation=true&f=severity,name&facets=tags&rule_key="
+      metrics: "https://sonarqube.pre.gcp.mercadona.com/api/measures/component?metricKeys="
+
+fwkcna:
+  auth:
+    provider:
+      adfs:
+        authority: "https://fed.premercadona.com/adfs/oauth2/token"
+        audience: "api://mercadona/audience/services/qacodemonitor/v1"

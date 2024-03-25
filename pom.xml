@@ -13,9 +13,10 @@
     <artifactId>archimedes-main</artifactId>
     <version>0.0.1</version>
     <packaging>pom</packaging>
-    <name>archimedes</name>
+    <name>archimedes-main</name>
 
     <modules>
+        <module>boot</module>
         <module>domain</module>
         <module>application</module>
         <module>input-adapters/api-rest</module>
@@ -31,10 +32,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.2.4</version>
         </dependency>
+
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
@@ -45,10 +49,12 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <version>3.2.4</version>
         </dependency>
     </dependencies>
 
@@ -56,22 +62,32 @@
         <dependencies>
             <dependency>
                 <groupId>com.archimedes.main</groupId>
-                <artifactId>api-rest</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>com.archimedes.main</groupId>
-                <artifactId>presistance-repository</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>com.archimedes.main</groupId>
-                <artifactId>application</artifactId>
+                <artifactId>boot</artifactId>
+                <version>0.0.1</version>
             </dependency>
 
             <dependency>
                 <groupId>com.archimedes.main</groupId>
                 <artifactId>domain</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.archimedes.main</groupId>
+                <artifactId>application</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.archimedes.main</groupId>
+                <artifactId>api-rest</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.archimedes.main</groupId>
+                <artifactId>presistance-repository</artifactId>
+                <version>0.0.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
