@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @DeleteMapping("/delete/{userId}")
-    public void deleteUserById(@PathVariable("userId") Long userId) { userService.deleteById(userId); }
+    public void deleteUserById(@PathVariable("userId") Long userId) { userService.delete(userId); }
 
     @PostMapping("/create")
     public void createUser(UsersDTO user) { userService.create(user); }
@@ -27,8 +27,28 @@ public class UserController {
     @GetMapping("/get/{userId}")
     public UsersDTO getUserById(@PathVariable("userId") Long userId) { return userService.findById(userId); }
 
+    @GetMapping("/get/{userStatus}")
+    public List<UsersDTO> getByUserStatus(@PathVariable("userStatus") Boolean userStatus){
+        return userService.findByStatus(userStatus);
+    }
+
     @GetMapping("/get/{veteranType}")
     public List<UsersDTO> getUsersByVeteranType(@PathVariable("veteranType") String veteranType) {
        return userService.findByVeteranType(veteranType);
+    }
+
+    @GetMapping("/get/{currencyType}")
+    public List<UsersDTO> getUsersByCurrencyType(@PathVariable("currencyType") String currencyType) {
+        return userService.findByCurrencyType(currencyType);
+    }
+
+    @GetMapping("/get/{groupCategory}")
+    public List<UsersDTO> getUsersByGroupCategory(@PathVariable("groupCategory") String groupCategory) {
+        return userService.findByGroupCategory(groupCategory);
+    }
+
+    @GetMapping("/get/{memberType}")
+    public List<UsersDTO> getUsersByMemberType(@PathVariable("memberType") String memberType) {
+        return userService.findByMemberType(memberType);
     }
 }

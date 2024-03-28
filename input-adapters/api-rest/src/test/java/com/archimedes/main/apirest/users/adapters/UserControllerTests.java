@@ -19,7 +19,7 @@ class UserControllerTests {
     @Mock
     private UserService userService;
     @InjectMocks
-    private UserController usersController;
+    private UserController userController;
 
     @Test
     @DisplayName("Should delete the user with the matching ID")
@@ -27,9 +27,9 @@ class UserControllerTests {
         //Given
         Long id = 1L;
         //When
-        usersController.deleteUserById(id);
+        userController.deleteUserById(id);
         //Then
-        verify(userService, times(1)).deleteById(id);
+        verify(userService, times(1)).delete(id);
     }
 
     @Test
@@ -38,7 +38,7 @@ class UserControllerTests {
         //Given
         //When/Then
         try {
-            usersController.deleteUserById(null);
+            userController.deleteUserById(null);
         }catch(NullPointerException e){
             assertThat("message should be correct", e.getMessage(), equalTo(""));
         }
@@ -50,7 +50,7 @@ class UserControllerTests {
         //Given
         Long id = 1L;
         //When
-        usersController.getUserById(id);
+        userController.getUserById(id);
         //Then
         verify(userService, times(1)).findById(id);
     }
@@ -61,7 +61,7 @@ class UserControllerTests {
         //Given
         //When/Then
         try {
-            usersController.getUserById(null);
+            userController.getUserById(null);
         }catch(NullPointerException e){
             assertThat("message should be correct", e.getMessage(), equalTo(""));
         }
@@ -73,7 +73,7 @@ class UserControllerTests {
         //Given
         UsersDTO user = new UsersDTO();
         //When
-        usersController.createUser(user);
+        userController.createUser(user);
         //Then
         verify(userService, times(1)).create(user);
     }
@@ -84,7 +84,7 @@ class UserControllerTests {
         //Given
         //When/Then
         try {
-            usersController.createUser(null);
+            userController.createUser(null);
         }catch(NullPointerException e){
             assertThat("message should be correct", e.getMessage(), equalTo("User data cannot be null"));
         }
@@ -96,9 +96,19 @@ class UserControllerTests {
         //Given
         UsersDTO user = new UsersDTO();
         //When
-        usersController.list();
+        userController.list();
         //Then
         verify(userService, times(1)).list();
+    }
+
+    @Test
+    @DisplayName("Should List Users by status")
+    void shouldGetUsersByStatus() {
+        //Given
+        //When
+        userController.getByUserStatus(true);
+        //Then
+        verify(userService, times(1)).findByStatus(true);
     }
 
     @Test
@@ -107,9 +117,38 @@ class UserControllerTests {
         //Given
         VeteranTypes veteranType = VeteranTypes.VETERAN;
         //When
-        usersController.getUsersByVeteranType(veteranType.getName());
+        userController.getUsersByVeteranType(veteranType.getName());
         //Then
         verify(userService, times(1)).findByVeteranType(veteranType.getName());
     }
 
+    @Test
+    @DisplayName("Should List Existing Users by veteran type")
+    void shouldGetUsersByTheirCurrencyType() {
+        //Given
+        //When
+        userController.getUsersByCurrencyType("yen");
+        //Then
+        verify(userService, times(1)).findByCurrencyType("yen");
+    }
+
+    @Test
+    @DisplayName("Should List Existing Users by group type")
+    void shouldGetUsersByTheirGroupType() {
+        //Given
+        //When
+        userController.getUsersByGroupCategory("especial");
+        //Then
+        verify(userService, times(1)).findByGroupCategory("especial");
+    }
+
+    @Test
+    @DisplayName("Should List Existing Users by member type")
+    void shouldGetUsersByTheirMemberType() {
+        //Given
+        //When
+        userController.getUsersByGroupCategory("especial");
+        //Then
+        verify(userService, times(1)).findByGroupCategory("especial");
+    }
 }
