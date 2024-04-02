@@ -1,8 +1,11 @@
 package com.archimedes.main.apirest.users.adapters;
 
+import com.archimedes.main.apirest.users.mappers.UserModelMapper;
+import com.archimedes.main.apirest.users.models.UserModel;
 import com.archimedes.main.application.users.ports.input.UserService;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.enums.UserAccountType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,15 +14,21 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserControllerTests {
     @Mock
     private UserService userService;
+
+    @Mock
+    private UserModelMapper mapper;
+
     @InjectMocks
     private UserController userController;
+
+    private final static UserModel USER_MODEL_STUB = new UserModel();
+
 
     @Test
     @DisplayName("Should delete the user with the matching ID")
@@ -71,11 +80,12 @@ class UserControllerTests {
     @DisplayName("Should find the user with the matching ID")
     void shouldCreateUser() {
         //Given
-        UsersDTO user = new UsersDTO();
+        var userDTO = new UsersDTO();
+        when(mapper.convert(USER_MODEL_STUB)).thenReturn(userDTO);
         //When
-        userController.createUser(user);
+        userController.createUser(USER_MODEL_STUB);
         //Then
-        verify(userService, times(1)).create(user);
+        verify(userService, times(1)).create(userDTO);
     }
 
     @Test

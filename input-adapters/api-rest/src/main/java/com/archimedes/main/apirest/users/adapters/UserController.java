@@ -1,5 +1,7 @@
 package com.archimedes.main.apirest.users.adapters;
 
+import com.archimedes.main.apirest.users.mappers.UserModelMapper;
+import com.archimedes.main.apirest.users.models.UserModel;
 import com.archimedes.main.application.users.ports.input.UserService;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +16,16 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    private UserModelMapper modelMapper;
 
     @DeleteMapping("/delete/{userId}")
     public void deleteUserById(@PathVariable("userId") Long userId) { userService.delete(userId); }
 
     @PostMapping("/create")
-    public void createUser(UsersDTO user) { userService.create(user); }
+    public void createUser(UserModel user) {
+        UsersDTO userMapping = modelMapper.convert(user);
+        userService.create(userMapping);
+    }
 
     @GetMapping("/list")
     public List<UsersDTO> list() { return userService.list(); }

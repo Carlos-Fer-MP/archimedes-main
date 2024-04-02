@@ -1,16 +1,20 @@
-package com.archimedes.main.domain.users.dtos;
+package com.archimedes.main.apirest.users.models;
 
+import com.archimedes.main.domain.users.dtos.GroupsDTO;
+import com.archimedes.main.domain.users.dtos.MembersDTO;
 import com.archimedes.main.domain.users.enums.UserAccountType;
 import com.archimedes.main.domain.wallet.dtos.WalletDTO;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Collections;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
-@Builder
-public class UsersDTO {
+public class UserModel {
     private Long id;
     private String name;
     private String email;

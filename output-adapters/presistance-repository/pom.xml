@@ -3,15 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
-    </parent>
-
-    <groupId>com.archimedes.main</groupId>
     <artifactId>presistance-repository</artifactId>
-    <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>presistance-repository</name>
 
@@ -19,19 +11,10 @@
         <java.version>17</java.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>3.2.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <version>3.2.4</version>
-        </dependency>
-    </dependencies>
+    <parent>
+        <groupId>com.archimedes.main</groupId>
+        <artifactId>archimedes-main</artifactId>
+        <version>0.0.1</version>
+    </parent>
 
 </project>

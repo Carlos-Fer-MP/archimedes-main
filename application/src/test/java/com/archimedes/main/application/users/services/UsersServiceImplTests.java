@@ -42,8 +42,8 @@ class UsersServiceImplTests {
                     Collections.emptyList(),
                     Collections.emptyList(),
                     Collections.emptyList(),
-                    LocalDateTime.now(),
-                    LocalDateTime.now()
+                    LocalDateTime.now().toString(),
+                    LocalDateTime.now().toString()
             ),
             new UsersDTO(
                     1L,
@@ -56,8 +56,8 @@ class UsersServiceImplTests {
                     Collections.emptyList(),
                     Collections.emptyList(),
                     Collections.emptyList(),
-                    LocalDateTime.now(),
-                    LocalDateTime.now()
+                    LocalDateTime.now().toString(),
+                    LocalDateTime.now().toString()
             )
     );
 
