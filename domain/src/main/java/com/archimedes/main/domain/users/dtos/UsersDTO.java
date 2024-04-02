@@ -17,10 +17,10 @@ public class UsersDTO {
     private String phoneNumber;
     private String password;
     private Boolean isActive;
-    private UserAccountType accountType;
+    private UserAccountType accountType = UserAccountType.PARTICULAR;
     private List<WalletDTO> wallets = Collections.emptyList();
-    private List<GroupsDTO> group = Collections.emptyList();
-    private List<MembersDTO> membersDTO = Collections.emptyList();
+    private List<GroupsDTO> groups = Collections.emptyList();
+    private List<MembersDTO> memberships = Collections.emptyList();
     private String created;
     private String inactive;
 }

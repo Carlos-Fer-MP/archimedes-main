@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public class MembersDTO {
     private Long id;
     private Boolean isActive;
-    private MemberTypes memberTypes;
-    private VeteranTypes veteranTypes;
+    private MemberTypes memberTypes = MemberTypes.NOT_A_MEMBER;
+    private VeteranTypes veteranTypes = VeteranTypes.NOT_ENROLLED;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 }

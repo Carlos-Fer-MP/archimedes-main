@@ -16,6 +16,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
     private UserModelMapper modelMapper;
 
     @DeleteMapping("/delete/{userId}")
@@ -23,7 +24,7 @@ public class UserController {
 
     @PostMapping("/create")
     public void createUser(UserModel user) {
-        UsersDTO userMapping = modelMapper.convert(user);
+        UsersDTO userMapping = modelMapper.toDto(user);
         userService.create(userMapping);
     }
 

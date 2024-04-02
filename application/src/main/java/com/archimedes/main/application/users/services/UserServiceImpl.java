@@ -1,6 +1,6 @@
 package com.archimedes.main.application.users.services;
 
-import com.archimedes.main.application.users.ports.output.PersistenceRepository;
+import com.archimedes.main.application.users.ports.output.PersistenceService;
 import com.archimedes.main.application.users.exceptions.UnknownUserException;
 import com.archimedes.main.application.users.ports.input.UserService;
 import com.archimedes.main.domain.commons.enums.CurrencyTypes;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
     @Autowired
-    private PersistenceRepository repository;
+    private PersistenceService repository;
 
     @Override
     public void delete(Long id) throws UnknownUserException {

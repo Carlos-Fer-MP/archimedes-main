@@ -19,9 +19,9 @@ public class BillingDTO {
     private String concept;
     private BigDecimal billing;
     private Boolean isActive;
-    private BillingTypes billingType;
-    private CurrencyTypes currencyType;
-    private RecurringTypes recurringType;
+    private BillingTypes billingType = BillingTypes.NOT_ASSIGNED;
+    private CurrencyTypes currencyType = CurrencyTypes.NOT_ASSIGNED;
+    private RecurringTypes recurringType = RecurringTypes.NON_RECURRENT;
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalTime lastBillingDate;

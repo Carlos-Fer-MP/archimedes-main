@@ -19,6 +19,7 @@
     <groupId>com.archimedes.main</groupId>
     <artifactId>archimedes-main</artifactId>
     <version>0.0.1</version>
+      <relativePath>../pom.xml</relativePath>
   </parent>
 
   <dependencies>

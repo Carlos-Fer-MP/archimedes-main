@@ -6,7 +6,7 @@ import java.util.Map;
 
 @Getter
 public enum CurrencyTypes {
-    NOT_ASSIGNED_YET("not_assigned_yet"),
+    NOT_ASSIGNED("not_assigned"),
     EURO("euro"),
     DOLLAR("dollar"),
     CHF("chf"),
@@ -22,6 +22,6 @@ public enum CurrencyTypes {
             "dollar", CurrencyTypes.DOLLAR.getCode(),
             "chf", CurrencyTypes.CHF.getCode(),
             "yen", CurrencyTypes.YEN.getCode(),
-            "not_assigned_yet", CurrencyTypes.NOT_ASSIGNED_YET.getCode()
+            "not_assigned", CurrencyTypes.NOT_ASSIGNED.getCode()
     );
 }

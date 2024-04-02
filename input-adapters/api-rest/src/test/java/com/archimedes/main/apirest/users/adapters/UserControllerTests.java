@@ -5,7 +5,6 @@ import com.archimedes.main.apirest.users.models.UserModel;
 import com.archimedes.main.application.users.ports.input.UserService;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
-import com.archimedes.main.domain.users.enums.UserAccountType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -81,7 +80,7 @@ class UserControllerTests {
     void shouldCreateUser() {
         //Given
         var userDTO = new UsersDTO();
-        when(mapper.convert(USER_MODEL_STUB)).thenReturn(userDTO);
+        when(mapper.toDto(USER_MODEL_STUB)).thenReturn(userDTO);
         //When
         userController.createUser(USER_MODEL_STUB);
         //Then

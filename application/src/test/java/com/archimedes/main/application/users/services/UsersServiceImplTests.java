@@ -1,6 +1,6 @@
 package com.archimedes.main.application.users.services;
 
-import com.archimedes.main.application.users.ports.output.PersistenceRepository;
+import com.archimedes.main.application.users.ports.output.PersistenceService;
 import com.archimedes.main.domain.commons.enums.CurrencyTypes;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class UsersServiceImplTests {
     @Mock
-    private PersistenceRepository repository;
+    private PersistenceService repository;
     @InjectMocks
     private UserServiceImpl userService;
 

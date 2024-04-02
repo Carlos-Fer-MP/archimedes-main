@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 public interface UserModelMapper {
 
-    @Mapping(target = "wallets", ignore = true)
-    @Mapping(target = "group", ignore = true)
-    @Mapping(target = "membersDTO", ignore = true)
-    UsersDTO convert(UserModel userModel);
+    UsersDTO toDto(UserModel userModel);
+
+    UserModel toEntity(UsersDTO usersDTO);
 }

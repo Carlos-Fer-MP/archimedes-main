@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum EventTypes {
+    NOT_ASSIGNED("not_assigned"),
     SOCIAL("social"),
     OFFICIAL("official");
 

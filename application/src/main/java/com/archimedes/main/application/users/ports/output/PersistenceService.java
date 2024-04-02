@@ -1,14 +1,10 @@
 package com.archimedes.main.application.users.ports.output;
 
 import com.archimedes.main.domain.users.dtos.UsersDTO;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-@ComponentScan("com.archimedes.main.application.users")
-public interface PersistenceRepository {
+public interface PersistenceService {
     void deleteById(long id);
 
     UsersDTO findById(long id);

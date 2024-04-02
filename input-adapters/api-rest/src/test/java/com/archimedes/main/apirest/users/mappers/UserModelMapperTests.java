@@ -2,13 +2,10 @@ package com.archimedes.main.apirest.users.mappers;
 
 import com.archimedes.main.apirest.users.models.UserModel;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
-import com.archimedes.main.domain.users.enums.UserAccountType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.Collections;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -23,7 +20,7 @@ class UserModelMapperTests {
         //Given
         var givenUserModel = createUserModel();
         //Then
-        var result = userModelMapper.convert(givenUserModel);
+        var result = userModelMapper.toDto(givenUserModel);
         //When
         assertThat("Classes should be the same", result.getClass(), equalTo(UsersDTO.class));
         //assertThat("Id should be equal", result.getId(), equalTo(1L));

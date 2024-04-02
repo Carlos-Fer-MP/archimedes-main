@@ -1,5 +1,6 @@
 package com.archimedes.main.domain.commons.enums;
 
+
 import lombok.Getter;
 
 import java.util.Map;

@@ -1,8 +1,6 @@
-package com.archimedes.main.domain.wallet.dtos;
+package com.archimedes.main.apirest.wallet.models;
 
 import com.archimedes.main.domain.billing.dtos.BillingDTO;
-import com.archimedes.main.domain.commons.enums.CurrencyTypes;
-import com.archimedes.main.domain.wallet.enums.WalletTypes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +12,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class WalletDTO {
+public class WalletModel {
     private Long id;
     private String name;
     private String owner;
     private BigDecimal balance;
     private Boolean isActive;
     private Boolean hasNoBalance;
-    private WalletTypes walletType = WalletTypes.PARTICULAR;
-    private CurrencyTypes currencyType = CurrencyTypes.NOT_ASSIGNED;
+    private String walletType;
+    private String currencyType;
     private List<BillingDTO> billings;
     private LocalDateTime created;
     private LocalDateTime updated;
