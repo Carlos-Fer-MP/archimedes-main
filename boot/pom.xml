@@ -25,7 +25,7 @@
   <dependencies>
     <dependency>
       <groupId>com.archimedes.main</groupId>
-      <artifactId>application</artifactId>
+      <artifactId>use-cases</artifactId>
       <version>0.0.1</version>
     </dependency>
     <dependency>

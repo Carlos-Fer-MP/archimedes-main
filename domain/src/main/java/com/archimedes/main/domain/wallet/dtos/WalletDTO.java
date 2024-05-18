@@ -18,12 +18,13 @@ public class WalletDTO {
     private Long id;
     private String name;
     private String owner;
-    private BigDecimal balance;
+    private int balance;
     private Boolean isActive;
     private Boolean hasNoBalance;
     private WalletTypes walletType = WalletTypes.PARTICULAR;
     private CurrencyTypes currencyType = CurrencyTypes.NOT_ASSIGNED;
     private List<BillingDTO> billings;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private String created;
+    private String updated;
+    private String deleted;
 }

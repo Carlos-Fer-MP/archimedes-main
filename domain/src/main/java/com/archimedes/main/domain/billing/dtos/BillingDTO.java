@@ -17,7 +17,7 @@ import java.time.LocalTime;
 public class BillingDTO {
     private Long id;
     private String concept;
-    private BigDecimal billing;
+    private int billing;
     private Boolean isActive;
     private BillingTypes billingType = BillingTypes.NOT_ASSIGNED;
     private CurrencyTypes currencyType = CurrencyTypes.NOT_ASSIGNED;

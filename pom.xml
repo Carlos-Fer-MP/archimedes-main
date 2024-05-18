@@ -57,24 +57,8 @@
             <!--External Dependencies-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${springframework.starter.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${starter.web}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-core</artifactId>
             </dependency>
 
             <dependency>
@@ -86,11 +70,53 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>coverage</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.8.7</version>
+                        <configuration>
+                            <append>true</append>
+                            <excludes>
+                                <exclude>**/ports/**</exclude>
+                                <exclude>**/dtos/**</exclude>
+                                <exclude>**/enums/**</exclude>
+                                <exclude>**/*Application.java</exclude>
+                                <exclude>**/*MapperImpl.java</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>pre-unit-test</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>post-unit-test</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>report-aggregate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
     <modules>
         <module>boot</module>
         <module>domain</module>
-        <module>application</module>
-        <module>input-adapters/api-rest</module>
-        <module>output-adapters/presistance-repository</module>
+        <module>application/use-cases</module>
+        <module>application/api-rest</module>
+        <module>infrastructure/presistance-repository</module>
     </modules>
 </project>
