@@ -1,5 +1,6 @@
 package com.archimedes.main.application.users.services;
 
+import com.archimedes.main.application.users.exceptions.NullUserGivenException;
 import com.archimedes.main.application.users.exceptions.NulluserDataException;
 import com.archimedes.main.application.users.ports.output.UserPersistenceService;
 import com.archimedes.main.application.users.exceptions.UnknownUserException;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,29 +22,24 @@ public class UserServiceImpl implements UserService {
     private UserPersistenceService repository;
 
     @Override
-    public void delete(Long id) throws UnknownUserException {
-        try {
-            repository.deleteById(id);
-        }catch (NullPointerException e) {
-            throw new UnknownUserException("User with id " + id + " not found");
-        }
+    public void delete(Long id) throws NulluserDataException {
+        if (null == id)
+            throw new NulluserDataException("User id is null");
+        repository.deleteById(id);
     }
 
     @Override
     public void create(UsersDTO user) throws NulluserDataException {
-        if(null == user.getId()) {
-            throw new NulluserDataException("User data cannot be null");
-        }
+        if(null == user)
+            throw new NullUserGivenException("User cannot be null");
         repository.createUser(user);
     }
 
     @Override
-    public UsersDTO findById(Long id) throws UnknownUserException {
-        try {
-            return repository.findById(id);
-        }catch (NullPointerException e) {
-            throw new UnknownUserException("User with id " + id + " not found");
-        }
+    public UsersDTO findById(Long id) throws NulluserDataException {
+        if (null == id)
+            throw new NulluserDataException("User id is null");
+        return repository.findById(id);
     }
 
     @Override
