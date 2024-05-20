@@ -1,5 +1,6 @@
 package com.archimedes.main.application.users.ports.output;
 
+import com.archimedes.main.application.users.exceptions.UnknownUserException;
 import com.archimedes.main.domain.users.dtos.UsersDTO;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public interface UserPersistenceService {
     void deleteById(long id);
 
-    UsersDTO findById(long id);
+    UsersDTO findById(long id) throws UnknownUserException;
 
     void createUser(UsersDTO dto);
 

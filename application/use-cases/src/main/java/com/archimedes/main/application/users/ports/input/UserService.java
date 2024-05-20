@@ -7,11 +7,11 @@ import com.archimedes.main.domain.users.dtos.UsersDTO;
 import java.util.List;
 
 public interface UserService {
-    void delete(Long id) throws UnknownUserException;
+    void delete(Long id) throws NulluserDataException;
 
     void create(UsersDTO user) throws NulluserDataException;
 
-    UsersDTO findById(Long id) throws UnknownUserException;
+    UsersDTO findById(Long id) throws NulluserDataException;
 
     List<UsersDTO> list();
 

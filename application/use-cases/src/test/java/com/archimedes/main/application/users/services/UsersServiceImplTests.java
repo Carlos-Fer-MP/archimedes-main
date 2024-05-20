@@ -1,5 +1,7 @@
 package com.archimedes.main.application.users.services;
 
+import com.archimedes.main.application.users.exceptions.NullUserGivenException;
+import com.archimedes.main.application.users.exceptions.NulluserDataException;
 import com.archimedes.main.application.users.ports.output.UserPersistenceService;
 import com.archimedes.main.domain.commons.enums.CurrencyTypes;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
@@ -80,8 +82,8 @@ class UsersServiceImplTests {
         //When/Then
         try {
             userService.delete(null);
-        }catch(NullPointerException e){
-            assertThat("message should be correct", e.getMessage(), equalTo("User with id null not found"));
+        }catch(NulluserDataException e){
+            assertThat("message should be correct", e.getMessage(), equalTo("User id is null"));
         }
     }
 
@@ -105,8 +107,8 @@ class UsersServiceImplTests {
         //When/Then
         try {
             userService.create(null);
-        }catch(NullPointerException e){
-            assertThat("message should be correct", e.getMessage(), equalTo("Cannot invoke \"com.archimedes.main.domain.users.dtos.UsersDTO.getId()\" because \"user\" is null"));
+        }catch(NullUserGivenException e){
+            assertThat("message should be correct", e.getMessage(), equalTo("User cannot be null"));
         }
     }
 
@@ -129,8 +131,8 @@ class UsersServiceImplTests {
         //When/Then
         try {
             userService.findById(null);
-        }catch(NullPointerException e){
-            assertThat("message should be correct", e.getMessage(), equalTo("User with id null not found"));
+        }catch(NulluserDataException e){
+            assertThat("message should be correct", e.getMessage(), equalTo("User id is null"));
         }
     }
 
