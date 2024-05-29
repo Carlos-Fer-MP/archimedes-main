@@ -7,8 +7,9 @@ import java.util.Map;
 @Getter
 public enum MemberTypes {
     NOT_A_MEMBER("not_a_member"),
-    ADULT("adult"),
-    KID("kid");
+    REGULAR("regular"),
+    SHARED("shared"),
+    GROUP("exposition");
 
     private final String value;
 
@@ -18,8 +19,8 @@ public enum MemberTypes {
 
     public static final Map<String,String> VALUES_MAP = Map.of(
        "not_a_member", MemberTypes.NOT_A_MEMBER.getValue(),
-       "adult", MemberTypes.ADULT.getValue(),
-       "kid", MemberTypes.KID.getValue()
+       "regular", MemberTypes.REGULAR.getValue(),
+       "shared", MemberTypes.SHARED.getValue(),
+       "GROUP", MemberTypes.GROUP.getValue()
     );
-
 }

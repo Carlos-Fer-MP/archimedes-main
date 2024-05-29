@@ -5,7 +5,7 @@ import com.archimedes.main.application.users.exceptions.NulluserDataException;
 import com.archimedes.main.application.users.ports.output.UserPersistenceService;
 import com.archimedes.main.domain.commons.enums.CurrencyTypes;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
-import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.dtos.Users;
 import com.archimedes.main.domain.users.enums.GroupCategoryTypes;
 import com.archimedes.main.domain.users.enums.MemberTypes;
 import com.archimedes.main.domain.users.enums.UserAccountType;
@@ -32,8 +32,8 @@ class UsersServiceImplTests {
     @InjectMocks
     private UserServiceImpl userService;
 
-    private static final List<UsersDTO> USER_LIST_STUB = List.of(
-            new UsersDTO(
+    private static final List<Users> USER_LIST_STUB = List.of(
+            new Users(
                     1L,
                     "",
                     "",
@@ -41,13 +41,12 @@ class UsersServiceImplTests {
                     "",
                     true,
                     UserAccountType.BUSINESS,
-                    Collections.emptyList(),
                     Collections.emptyList(),
                     Collections.emptyList(),
                     LocalDateTime.now().toString(),
                     LocalDateTime.now().toString()
             ),
-            new UsersDTO(
+            new Users(
                     1L,
                     "",
                     "",
@@ -55,7 +54,6 @@ class UsersServiceImplTests {
                     "",
                     true,
                     UserAccountType.BUSINESS,
-                    Collections.emptyList(),
                     Collections.emptyList(),
                     Collections.emptyList(),
                     LocalDateTime.now().toString(),
@@ -67,7 +65,7 @@ class UsersServiceImplTests {
     @DisplayName("Should delete an existing user by id")
     void shouldDeleteAUserWithAnId() {
         //Given
-        UsersDTO user = new UsersDTO();
+        Users user = new Users();
         user.setId(1L);
         //When
         userService.delete(user.getId());
@@ -91,7 +89,7 @@ class UsersServiceImplTests {
     @DisplayName("Should createUser an new user")
     void shouldCreateAUser() {
         //Given
-        UsersDTO user = new UsersDTO();
+        Users user = new Users();
         user.setId(1L);
         user.setEmail("test@email.com");
         //When
@@ -116,7 +114,7 @@ class UsersServiceImplTests {
     @DisplayName("Should find an existing user by id")
     void shouldFindAUserWithAnId() {
         //Given
-        UsersDTO user = new UsersDTO();
+        Users user = new Users();
         user.setId(1L);
         //When
         userService.findById(user.getId());
@@ -250,6 +248,6 @@ class UsersServiceImplTests {
         var result = userService.findByGroupCategory("");
         //Then
         verify(repository, times(1)).getByGroupCategory("");
-        assertThat("Group category types should be equal", result, not(MemberTypes.KID.getValue()));
+        assertThat("Group category types should be equal", result, not(MemberTypes.GROUP.getValue()));
     }
 }

@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class MembersDTO {
+public class Members {
     private Long id;
+    private String email;
     private Boolean isActive;
     private MemberTypes memberTypes = MemberTypes.NOT_A_MEMBER;
     private VeteranTypes veteranTypes = VeteranTypes.NOT_ENROLLED;

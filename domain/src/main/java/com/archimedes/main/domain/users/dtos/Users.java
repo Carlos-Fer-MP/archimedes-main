@@ -1,7 +1,7 @@
 package com.archimedes.main.domain.users.dtos;
 
 import com.archimedes.main.domain.users.enums.UserAccountType;
-import com.archimedes.main.domain.wallet.dtos.WalletDTO;
+import com.archimedes.main.domain.wallet.dtos.Wallet;
 import lombok.*;
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class UsersDTO {
+public class Users {
     private Long id;
     private String name;
     private String email;
@@ -18,9 +17,8 @@ public class UsersDTO {
     private String password;
     private Boolean isActive;
     private UserAccountType accountType = UserAccountType.PARTICULAR;
-    private List<WalletDTO> wallets = Collections.emptyList();
-    private List<GroupsDTO> groups = Collections.emptyList();
-    private List<MembersDTO> memberships = Collections.emptyList();
+    private List<Wallet> wallets = Collections.emptyList();
+    private List<Members> memberships = Collections.emptyList();
     private String created;
     private String inactive;
 }

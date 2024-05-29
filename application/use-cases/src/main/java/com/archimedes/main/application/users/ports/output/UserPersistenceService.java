@@ -1,26 +1,26 @@
 package com.archimedes.main.application.users.ports.output;
 
 import com.archimedes.main.application.users.exceptions.UnknownUserException;
-import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.dtos.Users;
 
 import java.util.List;
 
 public interface UserPersistenceService {
     void deleteById(long id);
 
-    UsersDTO findById(long id) throws UnknownUserException;
+    Users findById(long id) throws UnknownUserException;
 
-    void createUser(UsersDTO dto);
+    void createUser(Users dto);
 
-    List<UsersDTO> index();
+    List<Users> index();
 
-    List<UsersDTO> getByStatus(Boolean status);
+    List<Users> getByStatus(Boolean status);
 
-    List<UsersDTO> getByVeteranType(String veteranType);
+    List<Users> getByVeteranType(String veteranType);
 
-    List<UsersDTO> getByCurrencyType(String currencyType);
+    List<Users> getByCurrencyType(String currencyType);
 
-    List<UsersDTO> getByGroupCategory(String groupCategory);
+    List<Users> getByGroupCategory(String groupCategory);
 
-    List<UsersDTO> getByMemberType(String memberType);
+    List<Users> getByMemberType(String memberType);
 }

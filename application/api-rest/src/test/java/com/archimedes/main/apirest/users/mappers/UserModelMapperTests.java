@@ -1,7 +1,7 @@
 package com.archimedes.main.apirest.users.mappers;
 
 import com.archimedes.main.apirest.users.models.UserModel;
-import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.dtos.Users;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +22,7 @@ class UserModelMapperTests {
         //Then
         var result = userModelMapper.toDto(givenUserModel);
         //When
-        assertThat("Classes should be the same", result.getClass(), equalTo(UsersDTO.class));
+        assertThat("Classes should be the same", result.getClass(), equalTo(Users.class));
         //assertThat("Id should be equal", result.getId(), equalTo(1L));
     }
 

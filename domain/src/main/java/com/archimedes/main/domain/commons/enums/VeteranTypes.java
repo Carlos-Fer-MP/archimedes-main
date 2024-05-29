@@ -8,9 +8,9 @@ import java.util.Map;
 @Getter
 public enum VeteranTypes {
     NOT_ENROLLED("not_enrolled"),
-    VETERAN("veteran"),
     NEWBIE("newbie"),
-    REGULAR("regular");
+    REGULAR("regular"),
+    VETERAN("veteran");
 
     private final String name;
 

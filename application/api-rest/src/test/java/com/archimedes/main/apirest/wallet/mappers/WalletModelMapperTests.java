@@ -1,7 +1,7 @@
 package com.archimedes.main.apirest.wallet.mappers;
 
 import com.archimedes.main.apirest.wallet.models.WalletModel;
-import com.archimedes.main.domain.wallet.dtos.WalletDTO;
+import com.archimedes.main.domain.wallet.dtos.Wallet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +24,7 @@ class WalletModelMapperTests {
         //When
         var result = mapper.toDto(givenWalletModel);
         //Then
-        assertThat("Classes should be the same", result.getClass(), equalTo(WalletDTO.class));
+        assertThat("Classes should be the same", result.getClass(), equalTo(Wallet.class));
     }
 
 }

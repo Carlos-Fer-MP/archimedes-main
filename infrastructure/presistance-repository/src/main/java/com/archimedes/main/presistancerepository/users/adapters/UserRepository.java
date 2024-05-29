@@ -1,7 +1,7 @@
 package com.archimedes.main.presistancerepository.users.adapters;
 
 import com.archimedes.main.application.users.ports.output.UserPersistenceService;
-import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.dtos.Users;
 
 import java.util.List;
 
@@ -10,40 +10,40 @@ public class UserRepository implements UserPersistenceService {
     public void deleteById(long id) {}
 
     @Override
-    public UsersDTO findById(long id) {
+    public Users findById(long id) {
         return null;
     }
 
     @Override
-    public void createUser(UsersDTO dto) {}
+    public void createUser(Users dto) {}
 
     @Override
-    public List<UsersDTO> index() {
+    public List<Users> index() {
         return null;
     }
 
     @Override
-    public List<UsersDTO> getByStatus(Boolean status) {
+    public List<Users> getByStatus(Boolean status) {
         return null;
     }
 
     @Override
-    public List<UsersDTO> getByVeteranType(String veteranType) {
+    public List<Users> getByVeteranType(String veteranType) {
         return null;
     }
 
     @Override
-    public List<UsersDTO> getByCurrencyType(String currencyType) {
+    public List<Users> getByCurrencyType(String currencyType) {
         return null;
     }
 
     @Override
-    public List<UsersDTO> getByGroupCategory(String groupCategory) {
+    public List<Users> getByGroupCategory(String groupCategory) {
         return null;
     }
 
     @Override
-    public List<UsersDTO> getByMemberType(String memberType) {
+    public List<Users> getByMemberType(String memberType) {
         return null;
     }
 }

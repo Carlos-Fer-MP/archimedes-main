@@ -4,7 +4,7 @@ import com.archimedes.main.apirest.users.mappers.UserModelMapper;
 import com.archimedes.main.apirest.users.models.UserModel;
 import com.archimedes.main.application.users.ports.input.UserService;
 import com.archimedes.main.domain.commons.enums.VeteranTypes;
-import com.archimedes.main.domain.users.dtos.UsersDTO;
+import com.archimedes.main.domain.users.dtos.Users;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -79,7 +79,7 @@ class UserControllerTests {
     @DisplayName("Should find the user with the matching ID")
     void shouldCreateUser() {
         //Given
-        var userDTO = new UsersDTO();
+        var userDTO = new Users();
         when(mapper.toDto(USER_MODEL_STUB)).thenReturn(userDTO);
         //When
         userController.createUser(USER_MODEL_STUB);
@@ -103,7 +103,7 @@ class UserControllerTests {
     @DisplayName("Should List Existing Users")
     void shouldListUser() {
         //Given
-        UsersDTO user = new UsersDTO();
+        Users user = new Users();
         //When
         userController.list();
         //Then
